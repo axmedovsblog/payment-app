@@ -51,7 +51,9 @@ const account1 = {
   currency: "UZS",
   locale: "ru-RU",
 }
+
 // Ikkinchi akkount ma'lumoti
+
 const account2 = {
   password: "2222",
   cardNumber: 8411347213244488,
@@ -101,7 +103,9 @@ const account2 = {
   currency: "USD",
   locale: "en-US",
 }
+
 // Akkountlarni accounts arrayiga yig'ib oldik
+
 const accounts = [account1, account2]
 
 ////////////////////////////////////////////////
@@ -404,6 +408,7 @@ Chiqqan natijani formatlash uchun currencyFormatter
 funksiyasini ishlatadi.
 */
 const setSummary = (acc) => {
+
   //////////////////////////////
   ///////// Kirim va chiqimlarni hisoblashning birinchi usuli
   // const inCome = +acc.transfers
@@ -602,8 +607,9 @@ btnSend.addEventListener("click", (e) => {
   */
 
   if (!(+transferAmount.value < balance)) return
-  if (!loggedInAccount.currency === "USD" && +transferAmount.value > 0) return
-  if (!loggedInAccount.currency === "UZS" && +transferAmount.value > 500) return
+
+  if (loggedInAccount.currency === "USD" && +transferAmount.value <= 0) return
+  if (loggedInAccount.currency === "UZS" && +transferAmount.value < 500) return
   /* 
   Hozirgi sana ISO formatda. Transfer obyektining date
   propertysiga beramiz.
@@ -632,8 +638,20 @@ btnSend.addEventListener("click", (e) => {
 
   // console.log(convertation);
 
+  let receivedAmount
+  if (loggedInAccount.currency === toAccount.currency) {
+    receivedAmount = +transferAmount.value
+  } else if (loggedInAccount.currency === "UZS" && toAccount.currency === "USD") {
+    receivedAmount = +(transferAmount.value / 12145).toFixed(2)
+  } else if (loggedInAccount.currency === "USD" && toAccount.currency === "UZS") {
+    receivedAmount = +(transferAmount.value * 12145).toFixed(2)
+  } else {
+    alert("Noma'lum valyuta o'zgarishi")
+    return
+  }
+
   toAccount.transfers.push({
-    amount: loggedInAccount.currency === "UZS" ? convertationUZSToUSD : convertationUSDToUZS,
+    amount: receivedAmount,
     date,
   })
   // Transfer inputlarini tozalaymiz
