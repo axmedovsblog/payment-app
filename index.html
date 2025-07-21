@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Payments</title>
+</head>
+
+<body>
+    <!-- `-`-`-`-` SIGN IN OR LOGIN `-`-`-`-` -->
+    <div class="sign-in">
+      <div class="wrapper">
+        <h2>Log In </h2>
+        <form action="#">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter your Username" />
+
+          <label for="passwordlogin">Password</label>
+          <input type="password" id="passwordlogin" placeholder="Enter your password" />
+          <small class="loginSmall small"></small>
+
+          <div class="forgot"><span class="atag">Forgot Password?</span></div>
+          <button class="btn-login" type="submit">Login</button>
+
+          <div class="line"></div>
+          <div>Don't Have an account? <span class="atag signUpBtn">Sign Up</span></div>
+        </form>
+      </div>
+    </div>
+    <!-- `-`-`-`-` SIGN UP `-`-`-`-` -->
+    <div class="sign-up hide">
+      <div class="wrapper">
+        <h2>Sign Up Form</h2>
+        <form action="#">
+          <label for="first-name">First Name:</label>
+          <input type="text" id="first-name" placeholder="Enter your first name">
+
+          <label for="last-name">Last Name:</label>
+          <input class="aaa" type="text" id="last-name" placeholder="Enter your last name">
+
+          <label for="phone-number">Your Phone:</label>
+          <input type="tel" id="phone-number" placeholder="Enter your number : (91 234 56 78)">
+
+          <label for="password-sign-up">Password:</label>
+          <input type="password" id="password-sign-up" placeholder="Enter your password">
+
+          <label for="confirm-password">Confirm Password:</label>
+          <input type="password" id="confirm-password" placeholder="Enter your password">
+
+          <div class="already"><span class="atag">Already have an account</span></div>
+          <button class="createAcc" type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
+    <!-- `-`-`-`-` MODAL PAGE `-`-`-`-` -->
+    <div class="modal hide">
+      <div class="modal-content">
+        <p><span class="x">&times;</span></p>
+        <p><span class="refresh">&#x21bb;</span></p>
+        <label for="code">Enter the code you received :</label>
+        <p class="time">30</p>
+        <input type="number" id="code" placeholder="Code :" required>
+        <div class="btns-modal">
+          <button class="verifacationBtn">Confirm</button>
+        </div>
+      </div>
+    </div>
+    <!-- `-`-`-`-` CARD INFO `-`-`-`-` -->
+    <div class="card-info1 hide">
+      <div class="wrapper">
+        <h2>Card Info</h2>
+        <form action="#">
+          <label for="newCard">Card Number :</label>
+          <input type="number" id="newCard" placeholder="Enter your Card number(size=16) :">
+
+          <label for="validity">Validity period :</label>
+          <input type="number" id="validity" placeholder="Enter your validity period(00/00) :">
+
+          <label for="currency">Your Card currency :</label>
+          <select name="currency" id="currency" class="new-currency">
+            <option value="UZS">UZS</option>
+            <option value="USD">USD <span>&#36;</span></option>
+            <option value="EURO">EURO <span>&#8364;</span></option>
+            <option value="RUBL">RUBL <span>&#8381;</span></option>
+            <option value="YUAN">YUAN <span>&#20803;</span></option>
+          </select>
+
+          <div class="already1"><span class="atag">Already have an account</span></div>
+          <button class="card-info-create" type="submit">Confirm</button>
+        </form>
+      </div>
+    </div>
+    <!-- `-`-`-`-` FORGET PASSWORD CHANGE`-`-`-`-` -->
+    <div class="change-password hide">
+      <div class="wrapper change-pas">
+        <h2>Change Password</h2>
+        <form action="#">
+          <div class="changeUsernamesPassword">
+            <label for="userName">Type the username of the profile you want to change the password of :</label>
+            <input type="text" id="userName" placeholder="Enter your username :">
+          </div>
+          <div class="changePasswordInputs hide">
+            <label for="changeToPassword">Enter a new password :</label>
+            <input type="text" id="changeToPassword" placeholder="Enter a new password(min:4) :" min="4">
+            <label for="changeToPasswordConfirm">Confirm the new password :</label>
+            <input type="text" id="changeToPasswordConfirm" placeholder="Confirm the new password :">
+          </div>
+          <div class="btns-modal">
+            <button class="for-ps-change">Confirm</button>
+            <button class="non-change-ps">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  <!-- `-`-`-`-` MAIN PAGE `-`-`-`-` -->
+  <div class="basicPage hide">
+    <header>
+      <!-- <button class="btn-del">Delete</button> -->
+      <div class="container">
+        <div class="header-inner">
+          <h1 class="brand"></h1>
+          <button class="btn-exit hide">Chiqish</button>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <main>
+        <!-- <h1>Main wrapper</h1> -->
+        <section class="section section-left">
+          <div class="my-card">
+
+            <h2>Mening kartam</h2>
+            <div class="card">
+              <h3 class="card-type">Credit card</h3>
+              <img src="./img/card.svg" alt="" />
+              <div class="card-balance"></div>
+              <h3 class="card-owner"></h3>
+              <div class="card-info">
+                <span class="card-number"></span>
+                <span class="card-date"></span>
+              </div>
+            </div>
+
+            <div class="transfer">
+              <h2>Pul o'tkazish</h2>
+              <form action="#" class="form-transfer">
+                <input type="text" placeholder="Karta raqami" class="input-transfer-to" />
+
+                <input type="text" placeholder="Summa" class="input-transfer-amount" />
+
+                <button class="btn btn-send">Yuborish</button>
+              </form>
+            </div>
+        </section>
+
+        <section class="section section-right ">
+          <h2>O’tkazmalar tarixi</h2>
+          <div class="summary">
+            <div class="summary-card incomes">
+            </div>
+            <div class="summary-card expenses">
+            </div>
+          </div>
+
+          <ul class="transfers-list">
+
+          </ul>
+
+        </section>
+      </main>
+
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
